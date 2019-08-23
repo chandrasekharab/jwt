@@ -82,3 +82,24 @@ header.payload.signature
 ```
 eyerer22iOiJKV1QiLCJhbGciOiJIUzISDEA9.eyJ1c2VySWQi345iMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0RfePdfdfe.-xN_h82PHVTCMA9vdoHrcZxH-x78895y1537t3rGzcM
 ```
+
+## URLs
+
+- Home page
+
+```
+http://localhost:3010/
+```
+
+- Login 
+
+```
+http://localhost:3010/login?user=guest&pass=guest
+```
+
+- Ajax calls
+    
+```
+http://localhost:3010/jwtpayload
+http://localhost:3010/sayhi
+```
