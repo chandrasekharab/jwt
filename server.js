@@ -48,7 +48,8 @@ app.get('/login', (req, res) => {
 app.get('/sayhi', (req, res) => {
     const token = req.cookies.jwttoken;
     try {
-        jwt.verify(token, 'public_key_test');
+        const payload = jwt.verify(token, 'public_key_test');
+        console.log(payload);
     } catch (e) {
         res.send('error' + e);
     }
@@ -59,6 +60,19 @@ app.get('/sayhi', (req, res) => {
 app.get('/getcookies', (req, res) => {
     //shows all the cookies 
     res.send(req.cookies);
+});
+
+app.get('/jwtpayload', (req, res) => {
+    const token = req.cookies.jwttoken;
+    let payload;
+    try {
+        payload = jwt.verify(token, 'public_key_test');
+        res.setHeader('Content-Type', 'application/json');
+        
+    } catch (e) {
+        payload = 'error' + e;
+    }
+    res.send(payload);
 });
 
 //server listens to port 3000 

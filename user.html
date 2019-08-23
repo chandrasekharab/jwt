@@ -2,24 +2,38 @@
 <html>
 
 <head>
-  <title>
-    Index
-  </title>
+  <title>Index</title>
 </head>
-
 <body>
-  <h1>
-    You are authenticated!!!
-  </h1>
-  <h2>
-    <button onclick="sayHi()">Click me to send Ajax</button>
+  <style>
+    .btn {
+      margin: 10px;
+      padding: 5px;
+    }
+    div {
+      margin: 10px;
+      padding: 5px;
+      
+    }
+  </style>
 
+  <h1>You are authenticated!!!</h1>
+  <h2>
+    <button onclick="sayHi()" class='btn'>Click me to send Ajax, inspect network to observe JWT Token</button>
   </h2>
   <div>JWT token will be communicated as Cookie here</div>
-  <span id='token'></span>
-
+  <div id='token'></div>
+  <button onclick="showjwtPayload()" class='btn'>Show JWT payload via Ajax call</button>
+  <div id='payload'></div>
   <script>
-    const sayHi = () => fetch('/sayhi').then(res => document.querySelector('#token').innerText = res);
+    const sayHi = () =>
+      fetch('/sayhi').then(res =>
+        document.querySelector('#token').innerText = res);
+
+    const showjwtPayload = () =>
+      fetch('/jwtpayload').then(res =>
+        res.json().then(data =>
+          document.querySelector('#payload').innerText = JSON.stringify(data)));
   </script>
 </body>
 
