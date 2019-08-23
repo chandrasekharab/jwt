@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>
+    Index
+  </title>
+</head>
+
+<body>
+  <h1>
+    You are authenticated!!!
+  </h1>
+  <h2>
+    <button onclick="sayHi()">Click me to send Ajax</button>
+
+  </h2>
+  <div>JWT token will be communicated as Cookie here</div>
+  <span id='token'></span>
+
+  <script>
+    const sayHi = () => fetch('/sayhi').then(res => document.querySelector('#token').innerText = res);
+  </script>
+</body>
+
+</html>
