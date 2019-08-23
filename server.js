@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 //Route for adding cookie 
 app.get('/login', (req, res) => {
     const user = req.param('user');
-    const pwd = req.param('pass');    
+    let pwd = req.param('pass');    
 
     const contents = fs.readFileSync('users.auth.json', 'utf8');
     const userObj = JSON.parse(contents);
@@ -31,7 +31,7 @@ app.get('/login', (req, res) => {
         return;
     }
     const saltRounds = 10;
-    var pwd = bcrypt.hashSync(pwd, saltRounds);
+    pwd = bcrypt.hashSync(pwd, saltRounds);
 
     let token = jwt.sign({
             username: user,
