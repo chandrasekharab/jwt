@@ -50,6 +50,7 @@ header.payload.signature
 }
 ```
 "typ" -> specifies JWT object
+
 "alg" -> specifies hashing algorithm
 
 - The payload component of the JWT is the data that‘s stored inside the JWT 
